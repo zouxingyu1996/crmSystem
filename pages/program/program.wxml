@@ -1,0 +1,48 @@
+<!--pages/program/program.wxml-->
+<view class="page">
+  <view class="program_box">
+    <view class="item" wx:for="{{list}}" wx:key="item">
+    <navigator url="/pages/program_detail/program_detail?id={{item.id}}" hover-class="navigator-hover">
+      <view class="itemfl">
+        <image mode="aspectFill" src="{{item.acting_list_img}}"></image>
+      </view>
+      <view class="itemfr">
+        <view class="title">{{item.acting_name}}</view>
+        <view class="time">预计时长 {{item.time}}</view>
+        <view class="site">{{item.address}}</view>
+        <view class="time">{{item.createtime}}</view>
+        <view class="price">{{item.price}}</view>
+      </view>
+      </navigator>
+    </view>
+    <view class="empty_tips" wx:if="{{list.length == 0}}">暂无演出信息</view>
+  </view>
+  <view class='nav'>
+    <view class='nav_fl'>
+      <navigator url="/pages/index/index" open-type="switchTab">
+        <image src='../../image/nav_01.png'></image>
+        首页
+      </navigator>
+      <navigator url="/pages/hotel/hotel" open-type="switchTab">
+        <image src='../../image/nav_02.png'></image>
+        酒店
+      </navigator>
+    </view>
+    <view class='nav_centre'>
+      <navigator url="/pages/tickets/tickets" open-type="switchTab">
+        <image src='../../image/nav_03.png'></image>
+        门票
+      </navigator>
+    </view>
+    <view class='nav_fr'>
+      <navigator url="/pages/program/program" open-type="switchTab" class='nav_active'>
+        <image src='../../image/nav_hover04.png'></image>
+        演出
+      </navigator>
+      <navigator url="/pages/me/me" open-type="switchTab">
+        <image src='../../image/nav_05.png'></image>
+        我的
+      </navigator>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,49 @@
+/* pages/program/program.wxss */
+.program_box{
+  margin: 0 30rpx;
+  padding-bottom: 130rpx;
+}
+.item{
+  overflow: hidden;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #ebebeb;
+}
+.item .itemfl{
+  width: 160rpx;
+  float: left;
+}
+.item .itemfl image{
+  width: 100%;
+  height: 240rpx;
+  border-radius: 10rpx;
+}
+.item .itemfr{
+  float: left;
+  width: calc(100% - 180rpx);
+  margin-left: 20rpx;
+}
+.item .itemfr .title{
+  font-size: 34rpx;
+  margin-bottom: 20rpx;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item .itemfr .time,.item .itemfr .site{
+  color: #666;
+  font-size: 28rpx;
+  line-height: 1.5;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.item .itemfr .price{
+  font-size: 34rpx;
+  margin-top: 30rpx;
+  color: #ff2e62;
+  text-align: right;
+}
+.empty_tips{
+  color: #666;
+  padding: 30rpx 0;
+}

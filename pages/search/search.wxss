@@ -1,0 +1,161 @@
+/* pages/search/search.wxss */
+@import '../../utils/icon.wxss';
+
+.search_box {
+  padding: 0 30rpx;
+  overflow: hidden;
+  border-bottom: 2rpx solid #ebebeb;
+}
+
+.search {
+  display: inline-block;
+  position: relative;
+  height: 80rpx;
+  margin-left: 10rpx;
+  width: calc(100% - 120rpx);
+  float: left;
+}
+
+.search .icon-sousuo {
+  position: absolute;
+  left: 20rpx;
+  top: 26rpx;
+  line-height: auto;
+}
+
+.search input {
+  height: 60rpx;
+  width: 100%;
+  border-radius: 30rpx;
+  padding-left: 60rpx;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  background: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.search_btn {
+  width: 100rpx;
+  display: inline-block;
+  line-height: 80rpx;
+  float: right;
+  text-align: right;
+}
+
+.hos {
+  padding: 30rpx;
+}
+
+.hos_tips {
+  color: #999;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.hos_item {
+  padding: 10rpx 30rpx;
+  display: inline-block;
+  background: #f5f5f5;
+  border-radius: 40rpx;
+  color: #666;
+  margin: 15rpx 0;
+  margin-right: 20rpx;
+}
+
+.hot_sale {
+  margin-left: 30rpx;
+  padding-bottom: 30rpx;
+  /* margin:  0 0 30rpx; */
+}
+
+.hot_sale_item {
+  overflow: hidden;
+  border-bottom: 2rpx solid #ededed;
+  margin-top: 50rpx;
+}
+
+.hot_sale_itemfl {
+  width: 160rpx;
+  float: left;
+}
+
+.hot_sale_itemfl image {
+  width: 100%;
+  height: 240rpx;
+  border-radius: 20rpx;
+}
+
+.hot_sale_itemfr {
+  float: left;
+  width: calc(100% - 180rpx);
+  margin-left: 20rpx;
+  color: #666;
+}
+
+.hot_sale_text {
+  float: left;
+  width: calc(100% - 130rpx);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot_sale_text .bt {
+  color: #000;
+  font-size: 36rpx;
+}
+
+.hot_sale_text .grade {
+  margin: 20rpx 0;
+}
+
+.hot_sale_text .grade text {
+  color: #faa54f;
+  font-weight: bold;
+}
+
+.hot_sale_text .price {
+  margin-bottom: 20rpx;
+}
+
+.hot_sale_text .cite {
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot_sale_text .price text {
+  color: #faa54f;
+  font-weight: bold;
+}
+
+.hot_sale_btn {
+  float: right;
+  width: 100rpx;
+  color: white;
+  text-align: center;
+  background-image: linear-gradient(to right, #ff449d, #ff3068);
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  margin: 60rpx 20rpx 0 10rpx;
+}
+
+.hot_sale_itemfr .nes {
+  float: left;
+  width: 100%;
+  margin-top: 30rpx;
+  border-top: 2rpx solid #ededed;
+  line-height: 100rpx;
+  overflow: hidden;
+  /*自动隐藏文字*/
+  text-overflow: ellipsis;
+  /*文字隐藏后添加省略号*/
+  white-space: nowrap;
+  /*强制不换行*/
+}
+
+.hot_sale_itemfr .nes text {
+  color: #faa54f;
+}

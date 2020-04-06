@@ -1,0 +1,214 @@
+/* 头部样式 */
+
+page {
+  height: 100%;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.loading01 {
+  top: 100rpx;
+  bottom: 100rpx;
+  z-index: 8;
+}
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #ededed;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-flow: row;
+  z-index: 10;
+  justify-content: space-between;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  /* border: 1rpx solid red; */
+}
+
+.swiper-tab-item {
+  width: 50%;
+  color: #666;
+  position: relative;
+}
+
+.active {
+  color: #000;
+}
+
+.active:after {
+  content: ' ';
+  position: absolute;
+  height: 4rpx;
+  width: 30rpx;
+  background: #ff2e62;
+  bottom: 10rpx;
+  left: calc(50% - 15rpx);
+}
+
+.page>swiper {
+  display: flex;
+  margin-top: 88rpx;
+}
+
+/* 滑动列表 */
+
+swiper-item {
+  height: 100%;
+  overflow: scroll;
+  /* overflow-x:hidden; */
+}
+
+.hot_sale {
+  margin-left: 30rpx;
+  padding-bottom: 30rpx;
+  /* margin:  0 0 30rpx; */
+}
+
+.hot_sale_tips {
+  line-height: 100rpx;
+  color: #999;
+}
+
+.hot_sale_item {
+  overflow: hidden;
+  border-bottom: 2rpx solid #ededed;
+  margin-top: 50rpx;
+}
+
+.hot_sale_itemfl {
+  width: 160rpx;
+  float: left;
+}
+
+.hot_sale_itemfl image {
+  width: 100%;
+  height: 240rpx;
+  border-radius: 20rpx;
+}
+
+.hot_sale_itemfr {
+  float: left;
+  width: calc(100% - 180rpx);
+  margin-left: 20rpx;
+  color: #666;
+}
+
+.hot_sale_text {
+  float: left;
+  width: calc(100% - 130rpx);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot_sale_text .bt {
+  color: #000;
+  font-size: 36rpx;
+}
+
+.hot_sale_text .grade {
+  margin: 20rpx 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot_sale_text .grade text {
+  color: #faa54f;
+  /* font-weight: bold; */
+}
+
+.hot_sale_text .price {
+  margin-bottom: 20rpx;
+}
+
+.hot_sale_text .cite {
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot_sale_text .price text {
+  color: #faa54f;
+  /* font-weight: bold; */
+}
+
+.hot_sale_btn {
+  float: right;
+  width: 100rpx;
+  color: white;
+  text-align: center;
+  background-image: linear-gradient(to right, #ff449d, #ff3068);
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  margin: 160rpx 20rpx 0 10rpx;
+}
+
+.hot_sale_itemfr .nes {
+  position: relative;
+  width: 100%;
+  margin-top: 30rpx;
+  border-top: 2rpx solid #ededed;
+  line-height: 100rpx;
+  margin-right: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot_sale_itemfr .nes .tips {
+  color: #faa54f;
+}
+
+.hot_sale_itemfr .nes .comment {
+  padding-right: 20rpx;
+}
+
+.swiper-position {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100rpx;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiperitem {
+  height: 100%;
+  margin-left: 150rpx;
+}
+
+.swiperitem swiper-item{
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.swiperview .wx-swiper-dots {
+  display: none;
+}
+
+.swiper-txt {
+  font-size: 30rpx;
+  color: #b0b0b0;
+  line-height: 100rpx;
+}
+
+.shade {
+  position: absolute;
+  width: 100%;
+  height: 100rpx;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}

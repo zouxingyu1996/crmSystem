@@ -1,0 +1,45 @@
+<!--pages/search/search.wxml-->
+<view class="page">
+  <view class="search_box">
+    <view class='search'>
+      <text class='iconfont icon-sousuo'></text>
+      <input type='text' placeholder='景点名' bindinput="bindText" focus></input>
+    </view>
+    <view class="search_btn" bindtap="search">搜 索</view>
+  </view>
+  <view class="hos" wx:if="{{!showList}}">
+    <view class="hos_tips">热门搜索</view>
+    <view class="hos_item" wx:for="{{hosList}}" wx:key="item">
+      <navigator url="/pages/detail/detail?id={{item.id}}" hover-class="navigator-hover">
+        {{item.title}}
+      </navigator>
+    </view>
+  </view>
+  <view class='hot_sale' wx:if="{{showList}}">
+    <view class='hot_sale_item' wx:for="{{list}}" wx:key="item">
+      <navigator url="/pages/detail/detail?id={{item.id}}" hover-class="navigator-hover">
+        <view class='hot_sale_itemfl'>
+          <image src='{{item.imgurl}}'></image>
+        </view>
+        <view class='hot_sale_itemfr'>
+          <view class='hot_sale_text'>
+            <view class='bt'>{{item.title}}</view>
+            <view class='grade'>景点评分
+              <text>{{item.star}}</text> | {{item.popularity}}万人评分</view>
+            <view class='price'>
+              <text>￥{{item.fee}}元</text>
+            </view>
+            <view class='cite'>地点: {{item.placedetail}}</view>
+          </view>
+          <view class='hot_sale_btn'>购票</view>
+          <view class='nes' wx:if="{{item.comment}}">
+            <text>最新评论</text> | {{item.comment}}
+          </view>
+          <view class='nes' wx:else>
+            <text>最新评论</text> | 非常不错的景点，值得一去
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

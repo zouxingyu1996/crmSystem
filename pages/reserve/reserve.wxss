@@ -1,0 +1,201 @@
+/* pages/reserve/reserve.wxss */
+@import '../../utils/icon.wxss';
+page {
+  height: 100%;
+  background: #f5f5f5;
+}
+
+.page {
+  height: 100%;
+}
+
+swiper {
+  display: flex;
+  padding-top: 88rpx;
+}
+.btn navigator{
+  display: inline-block;
+}
+swiper-item {
+  height: 100%;
+  overflow: scroll;
+}
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #ededed;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-flow: row;
+  z-index: 10;
+  justify-content: space-between;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  /* border: 1rpx solid red; */
+}
+
+.swiper-tab-item {
+  width: 33.3%;
+  color: #999;
+  position: relative;
+  font-weight: bold;
+}
+
+.active {
+  color: #fe2e62;
+}
+
+.active:after {
+  content: ' ';
+  position: absolute;
+  height: 6rpx;
+  width: 40rpx;
+  background: #ff2e62;
+  bottom: 0;
+  border-radius: 4rpx;
+  left: calc(50% - 15rpx);
+}
+/* 列表 */
+.bill_item{
+  margin: 30rpx 0;
+  height: 360rpx;
+  overflow: hidden;
+}
+.bill_itemfl{
+  width: 130rpx;
+  background: #fff;
+  height: 360rpx;
+  border-right: 2rpx dashed #ebebeb;
+  float: left;
+  box-sizing: border-box;
+  position: relative;
+  text-align: center;
+  line-height: 360rpx;
+}
+.bill_itemfl .label{
+  background: #bcbcbc;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  line-height: 60rpx;
+}
+.bill_itemfr{
+  width: calc(100% - 130rpx);
+  height: 360rpx;
+  background: #fff;
+  float: left;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.bill_itemfr .fl{
+  width: calc(100% - 150rpx);
+  float: left;
+}
+
+.bill_item .fl .row{
+  display: flex;
+  width: 100%;
+}
+.bill_item .fl .right{
+  width: 70%;
+  color: #404040;
+  font-size: 38rpx;
+} 
+.bill_item .fl .left{
+  width:30%;
+  flex-grow:1;
+  color: #88c9f8;
+}
+.bill_itemfr .fl .name{
+  font-size: 30rpx;
+  color: #bcbcbc;
+  margin-top: 6rpx;
+  margin-bottom: 6rpx;
+  overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.bill_itemfr .fl .time,.bill_itemfr .fl .site{
+  font-size: 30rpx;
+  color: #c8c8c8;
+  line-height: 1.5;
+  overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+
+}
+.bill_itemfr .fl .btn{
+  margin-top: 15rpx;
+  text-align: center;
+}
+.bill_itemfr .fl .btn text{
+  font-size: 32rpx;
+  padding: 5rpx 30rpx;
+  border-radius: 40rpx;
+  border: 2rpx solid #ff9c1a;
+  color: #ff9c1a;
+  margin-right: 30rpx;
+  display: inline-block;
+}
+/* .bill_itemfr .fl .btn text:nth-last-child(1){
+  margin-right: 0;
+} */
+.bill_itemfr .fr{
+  width: 120rpx;
+  height: 270rpx;
+  line-height: 270rpx;
+  float: right;
+}
+.bill_itemfr .fr image{
+  width: 120rpx;
+  height: 180rpx;display: block;
+  margin-top: 45rpx;
+}
+.bill_itemfl:after, .bill_itemfl:before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: -12rpx;
+    width: 24rpx;
+    height: 12rpx;
+    background: #f8f8f8;
+}
+.bill_itemfl:before {
+    top: 0;
+    border-radius: 0 0 24rpx 24rpx;
+}
+.bill_itemfl:after {
+    bottom: 0;
+    border-radius: 24rpx 24rpx 0 0;
+}
+/* 无订单样式 */
+.empty{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.empty_box{
+  color: #666;
+  text-align: center;
+}
+.empty_box .tips
+{
+  font-size: 38rpx;
+}
+.empty_box .btn
+{
+  font-size: 32rpx;
+  border: 2rpx solid #c8c8c8;
+  border-radius: 40rpx;
+  text-align: center;
+  line-height: 60rpx;
+  padding: 0 30rpx;
+  margin-top: 50rpx;
+}

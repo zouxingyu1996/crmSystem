@@ -1,0 +1,28 @@
+<!--pages/help/help.wxml-->
+<view class="page">
+  <view class="box">
+    <view class="title">帮助问答</view>
+    <view class="item" wx:for="{{data_content}}" wx:key="item">
+      <view class="ask">
+        <view class="fl">问: </view>
+        <view class="fr">{{item.title}}</view>
+      </view>
+      <view class="reply">
+        <view class="fl">答: </view>
+        <view class="fr">{{item.content}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="box1">
+    <view class="title">图文指引</view>
+    <view class="item" wx:for="{{data_img}}" wx:key="item">
+      <view class="ask">
+        <view class="fl">问: </view>
+        <view class="fr">{{item.title}}</view>
+      </view>
+      <view class="reply">
+        <image src="{{item.img}}"></image>
+      </view>
+    </view>
+  </view>
+</view>

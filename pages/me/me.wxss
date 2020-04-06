@@ -1,0 +1,170 @@
+/* pages/me/me.wxss */
+@import '../../utils/icon.wxss';
+/* 获取用户头像 */
+.info_btn{
+  border: 2rpx solid #fff;
+  padding: 10rpx 30rpx;
+  border-radius: 40rpx;
+}
+.info {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infobox {
+  background: #fff;
+  margin: 0 100rpx;
+  width: 100%;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.infobox .logo {
+  width: 100rpx;
+  height: 100rpx;
+  border: 2rpx solid #ebebeb;
+  border-radius: 50%;
+  padding: 5rpx;
+  display: flex;
+  align-items: center;
+  margin: 30rpx auto;
+}
+
+.infobox .logo image {
+  width: 90rpx;
+  height: 90rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.infobox .name {
+  text-align: center;
+  font-size: 34rpx;
+  margin: 0 30rpx;
+}
+
+.infobox .tips {
+  margin: 30rpx;
+  text-align: center;
+  color: #999;
+  font-size: 30rpx;
+}
+
+.infobox .btn{
+  margin: 50rpx 30rpx;
+  overflow: hidden;
+}
+
+.infobox button {
+  width: calc(50% - 10rpx);
+  background: #403836;
+  color: #fff;
+  border-radius: 40rpx;
+  line-height: 70rpx;
+  float: left;
+  padding: 0;
+}
+.infobox button:nth-child(1){
+  margin-right: 10rpx;
+}
+.infobox button:nth-last-child(1){
+  margin-left: 10rpx;
+}
+
+.info .iconfont{
+  position: absolute;
+  font-size: 50rpx;
+  top: 10rpx;
+  right: 10rpx;
+  padding: 10rpx;
+}
+/* 获取用户头像结束 */
+page{
+  height: 100%;
+}
+.page{
+  height: 100%;
+  background: #f5f5f5;
+}
+/* 头部 */
+.me_top{
+  background: #434448;
+  height: 230rpx;
+  display: flex;
+  align-items: center;
+}
+.me_top_fl{
+  margin-left: 30rpx;
+  float: left;
+  padding: 5rpx;
+    width: 110rpx;
+  height: 110rpx;
+  background: #fff;
+  border-radius: 50%;
+}
+.me_top_fl image{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+}
+.me_top_fr{
+  color: #fff;
+  float: left;
+  margin-left: 30rpx;
+}
+.me_top_fr .name{
+  font-size: 36rpx;
+}
+.me_top_fr .number{
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  color: #f9f9f9;
+}
+.me_top_fr .number text{
+  padding-left: 20rpx;
+}
+/* 中间列表 */
+.me_nav{
+  background: #fff;
+  border-radius: 20rpx;
+  margin: 30rpx;
+  overflow: hidden;
+  
+}
+.me_nav_item{
+  float: left;
+  text-align: center;
+  width: 33.33333%;
+  margin: 30rpx 0;
+}
+.me_nav_item image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 10rpx;
+}
+.me_list{
+  background: #fff;
+  border-radius: 20rpx;
+  margin: 30rpx;
+  padding: 0 20rpx;
+}
+.me_list_item{
+  line-height: 100rpx;
+  border-bottom: 2rpx solid #ededed;
+}
+.me_list_item:nth-last-child(1){
+  border-bottom: none;
+}
+.me_list_item text{
+  float: right;
+}

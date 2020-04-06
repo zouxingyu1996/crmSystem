@@ -1,0 +1,111 @@
+/* pages/hotel/hotel.wxss */
+
+.hotel_box {
+  padding-bottom: 20rpx;
+}
+
+.item {
+  overflow: hidden;
+  padding: 20rpx 0;
+  /* border-bottom: 3rpx solid #f5f5f5; */
+}
+
+.item .itemfl {
+  width: 180rpx;
+  height: 240rpx;
+  float: left;
+  margin-left: 20rpx;
+}
+
+.item .itemfl image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.item .itemfr {
+  width: calc(100% - 220rpx);
+  height: 240rpx;
+  margin-left: 20rpx;
+  float: left;
+  position: relative;
+  padding-bottom: 30rpx;
+  border-bottom: 3rpx solid #eee;
+}
+
+.item .itemfr .title {
+  font-size: 34rpx;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item .itemfr .tips {
+  font-size: 28rpx;
+  color: #ff5f33;
+  margin-bottom: 10rpx;
+}
+
+.item .itemfr .site {
+  width: calc(100% - 140rpx);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item .itemfr .site, .item .itemfr .describe {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.item .itemfr .tag {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #ff5f33;
+}
+
+.item .itemfr .tag text {
+  font-size: 28rpx;
+  border: 2rpx solid #ff5f33;
+  border-radius: 4rpx;
+  padding: 0 8rpx;
+  margin-right: 10rpx;
+}
+
+.item .itemfr .price {
+  position: absolute;
+  right: 20rpx;
+  bottom: 84rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.item .itemfr .price view {
+  display: inline-block;
+  font-size: 28rpx;
+  color: #ff2e62;
+  margin-right: 10rpx;
+}
+
+.item .itemfr .price text {
+  font-size: 34rpx;
+}
+
+.item .itemfr .btn {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  width: 100rpx;
+  color: white;
+  text-align: center;
+  background-image: linear-gradient(to right, #ff449d, #ff3068);
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
+}
+
+.empty_tips{
+  color: #666;
+  padding: 30rpx;
+}

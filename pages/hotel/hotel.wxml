@@ -1,0 +1,99 @@
+<!--pages/hotel/hotel.wxml-->
+<view class="page">
+  <view class="hotel_box">
+    <!--头部-->
+    <view class="header">
+      <swiper class="header_swiper" indicator-dots="true" indicator-color="rgba(255,255,255,.5)" indicator-active-color="rgba(255,255,255,1)" autoplay="true" interval="5000" duration="500" circular="true">
+        <swiper-item wx:for="{{imgUrls}}" wx:key="item">
+          <image src="{{item.url}}" class="slide-image" data-type="{{item.type}}" data-id="{{item.hid}}" bindtap="navClick" />
+        </swiper-item>
+      </swiper>
+    </view>
+    <!-- 头部结束 -->
+    <!-- 热门酒店 -->
+    <view class="hot_hotel">
+      <navigator url="/pages/hotel_list/hotel_list" open-type="navigate">
+        <view class='hot_hotel_tips'>
+          热门酒店
+          <text>Hot spots</text>
+          <view class="fr">
+            <text>全部酒店</text>
+            <text class='iconfont icon-arrow-right-copy'></text>
+          </view>
+        </view>
+      </navigator>
+      <scroll-view scroll-x="true">
+        <view wx:for="{{hosList}}" wx:key="item" class='hot_hotel_item'>
+          <navigator url="/pages/house/house?id={{item.id}}" hover-class="navigator-hover">
+            <image src='{{item.hotelimg}}'></image>
+            <view class='describe'>
+                <text class="fl">分数: </text>
+                <view class="fl">
+                  <text class='iconfont {{item.star >= 1? "icon-pingfen_xuanzhong":""}}'></text>
+                  <text class='iconfont {{item.star >= 2? "icon-pingfen_xuanzhong":""}}'></text>
+                  <text class='iconfont {{item.star >= 3? "icon-pingfen_xuanzhong":""}}'></text>
+                  <text class='iconfont {{item.star >= 4? "icon-pingfen_xuanzhong":""}}'></text>
+                  <text class='iconfont {{item.star >= 5? "icon-pingfen_xuanzhong":""}}'></text>
+                </view>  
+            </view>
+            <view class='btm'>
+              <text class='name'>{{item.hotel_name}}</text>
+              <view class='btn'>预定</view>
+            </view>
+          </navigator>
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 热门酒店结束 -->
+    <!-- 促销活动 -->
+    <view class="poster">
+      <view class="poster_tips">促销活动 <text>Hot spots</text></view>
+      
+<swiper
+  indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}"
+  duration="{{duration}}"
+  previous-margin="{{previousMargin}}" 
+  next-margin="{{nextMargin}}"
+  circular="{{circular}}"
+  bindchange="swiperBindchange"
+>
+  <block wx:for="{{imgUrls1}}" wx:key="item">
+    <swiper-item>
+      <image data-id="{{item.hotelid}}" bindtap="navClick1" src="{{item.fileurl}}" class="slide-image {{currentSwiperIndex == index ? 'zoom-in' : 'zoom-out'}}"/>
+    </swiper-item>
+  </block>
+</swiper>
+    </view>
+    <!-- 促销活动结束 -->
+  </view>
+  <view class='nav'>
+    <view class='nav_fl'>
+      <navigator url="/pages/index/index" open-type="switchTab">
+        <image src='../../image/nav_01.png'></image>
+        首页
+      </navigator>
+      <navigator url="/pages/hotel/hotel" open-type="switchTab" class='nav_active'>
+        <image src='../../image/nav_hover02.png'></image>
+        酒店
+      </navigator>
+    </view>
+    <view class='nav_centre'>
+      <navigator url="/pages/tickets/tickets" open-type="switchTab">
+        <image src='../../image/nav_03.png'></image>
+        门票
+      </navigator>
+    </view>
+    <view class='nav_fr'>
+      <navigator url="/pages/program/program" open-type="switchTab">
+        <image src='../../image/nav_04.png'></image>
+        演出
+      </navigator>
+      <navigator url="/pages/me/me" open-type="switchTab">
+        <image src='../../image/nav_05.png'></image>
+        我的
+      </navigator>
+    </view>
+  </view>
+</view>

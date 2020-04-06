@@ -1,0 +1,24 @@
+<!--pages/collect/collect.wxml-->
+<view class='page'>
+  <view class="collect_tips">
+    共{{total}}个收藏
+  </view>
+  <view class="collect_box">
+    <view class='hot_sale_item' wx:for="{{list}}" wx:key="item">
+      <navigator url="/pages/detail/detail?id={{item.id}}" hover-class="navigator-hover">
+        <view class='hot_sale_itemfl'>
+          <image src='{{item.imgurl}}'></image>
+        </view>
+        <view class='hot_sale_itemfr'>
+          <view class='hot_sale_text'>
+            <view class='bt'>{{item.title}}</view>
+            <view class='grade'>景点评分
+              <text>{{item.score}}</text> | {{item.popularity}}万人评分</view>
+            <view class='cite'>地点: {{item.placedetail}}</view>
+          </view>
+        </view>
+        <view class="hot_sale_time">收藏于{{item.collectiontime}}</view>
+      </navigator>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+<!--pages/evaluate/evaluate.wxml-->
+<view class='page'>
+  <view class="collect_tips">
+    共{{total}}个评价
+  </view>
+  <view class="detail_box_comment">
+    <view class='item' wx:for="{{list}}" wx:key="item">
+      <navigator url="/pages/detail/detail?id={{item.cid}}" hover-class="navigator-hover">
+        <view class='info'>
+          <view class='photo'>
+            <image src='{{item.imgurl}}'></image>
+          </view>
+          <view class='name'>
+            <text>{{item.title}}</text>
+            <view class='star'>
+              <text class='iconfont {{item.star >= 1? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+              <text class='iconfont {{item.star >= 2? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+              <text class='iconfont {{item.star >= 3? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+              <text class='iconfont {{item.star >= 4? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+              <text class='iconfont {{item.star >= 5? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+              <text class='number'>{{item.star}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='text'>
+          {{item.comment}}
+        </view>
+        <view class="img">
+          <view class="img_item" wx:for="{{item.commentimg}}" wx:key="item">
+            <image src="https://ytspiao.ytsshop.com/{{item}}"></image>
+          </view>
+        </view>
+        <view class='time'>{{item.comtime}}</view>
+      </navigator>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,178 @@
+<!--pages/bill/bill.wxml-->
+<view class='page'>
+  <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">末使用</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">已使用</view>
+    <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">未付款</view>
+    <view class="swiper-tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="clickTab">退款</view>
+  </view>
+  <!-- 列表 -->
+  <swiper current="{{currentTab}}" duration="300" style='height:calc(100% - 88rpx);' bindchange="swiperTab">
+    <!-- 末使用的票据-->
+    <swiper-item>
+      <block wx:if="{{arr2.length > 0}}">
+        <view class='bill_item' wx:for="{{arr2}}" wx:key="item">
+          <view class='bill_itemfl'>
+            <text class='label'>票</text>
+          </view>
+          <view class='bill_itemfr'>
+            <view class='fl'>
+              <view class='name'>{{item.title}} {{item.total}}张</view>
+              <view class='time'>{{item.createtime}}</view>
+              <view class='site'>{{item.placedetail}}</view>
+              <view class='btn'>
+                <navigator url="/pages/order/order?id={{item.orderid}}" hover-class="navigator-hover">
+                  <text>使用</text>
+                </navigator>
+                <navigator url="/pages/order/order?id={{item.orderid}}" hover-class="navigator-hover">
+                  <text>退款</text>
+                </navigator>
+              </view>
+            </view>
+            <view class='fr'>
+              <image src='{{item.imgurl}}'></image>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='empty'>
+          <view class='empty_box'>
+            <view class='tips'>暂无有效订单</view>
+            <view class='btn'>
+              <navigator url="/pages/tickets/tickets" open-type="switchTab">
+                查看景点列表
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </block>
+    </swiper-item>
+
+    <!-- 已使用的票据 -->
+    <swiper-item>
+      <block wx:if="{{arr3.length > 0}}">
+        <view class='bill_item' wx:for="{{arr3}}" wx:key="item">
+          <view class='bill_itemfl'>
+            <text class='label'>票</text>
+          </view>
+          <view class='bill_itemfr'>
+            <view class='fl'>
+              <view class='name'>{{item.title}} {{item.total}}张</view>
+              <view class='time'>{{item.createtime}}</view>
+              <view class='site'>{{item.placedetail}}</view>
+              <view class='btn'>
+                <text bindtap="delorder" data-orderid="{{item.orderid}}">删除</text>
+                <block wx:if="{{item.com_status == 0}}">
+                  <navigator url="/pages/discuss/discuss?id={{item.id}}&orderid={{item.orderid}}" hover-class="navigator-hover">
+                    <text>评价</text>
+                  </navigator>
+                </block>
+                <block wx:else>
+                  <navigator url="/pages/evaluate/evaluate" hover-class="navigator-hover">
+                    <text>我的评价</text>
+                  </navigator>
+                </block>
+              </view>
+            </view>
+            <view class='fr'>
+              <image src='{{item.imgurl}}'></image>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='empty'>
+          <view class='empty_box'>
+            <view class='tips'>暂无有效订单</view>
+            <view class='btn'>
+              <navigator url="/pages/tickets/tickets" open-type="switchTab">
+                查看景点列表
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </block>
+    </swiper-item>
+
+    <!-- 未付款订单 -->
+    <swiper-item>
+      <block wx:if="{{arr1.length > 0}}">
+        <view class='bill_item' wx:for="{{arr1}}" wx:key="item">
+          <view class='bill_itemfl'>
+            <text class='label'>票</text>
+          </view>
+          <view class='bill_itemfr'>
+            <view class='fl'>
+              <view class='name'>{{item.title}} {{item.total}}张</view>
+              <view class='time'>{{item.createtime}}</view>
+              <view class='site'>{{item.placedetail}}</view>
+              <view class='btn'>
+                <navigator url="/pages/pay/pay?orderid={{item.orderid}}" hover-class="navigator-hover">
+                  <text>付款</text>
+                </navigator>
+                <text bindtap="delorder" data-orderid="{{item.orderid}}">删除</text>
+              </view>
+            </view>
+            <view class='fr'>
+              <image src='{{item.imgurl}}'></image>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='empty'>
+          <view class='empty_box'>
+            <view class='tips'>暂无有效订单</view>
+            <view class='btn'>
+              <navigator url="/pages/tickets/tickets" open-type="switchTab">
+                查看景点列表
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </block>
+    </swiper-item>
+    <!-- 退款订单 -->
+    <swiper-item>
+      <block wx:if="{{arr4.length > 0}}">
+        <view class='bill_item' wx:for="{{arr4}}" wx:key="item">
+          <view class='bill_itemfl'>
+            <text class='label'>票</text>
+          </view>
+          <view class='bill_itemfr'>
+            <view class='fl'>
+              <view class='name'>{{item.title}} {{item.total}}张</view>
+              <view class='time'>{{item.createtime}}</view>
+              <view class='site'>
+                <text wx:if="{{item.isrefund == 1}}">进度：退款中</text>
+                <text wx:elif="{{item.isrefund == 2}}">进度：已退款</text>
+                <text wx:else="{{item.isrefund == 3}}">进度：审核未通过,请选择使用或重新申请。</text>
+              </view>
+              <view class='btn'>
+                <text wx:if="{{item.isrefund == 1}}" bindtap="redelete" data-orderid="{{item.orderid}}">取消</text>
+                <text wx:else bindtap="delorder" data-orderid="{{item.orderid}}">删除</text>
+              </view>
+            </view>
+            <view class='fr'>
+              <image src='{{item.imgurl}}'></image>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='empty'>
+          <view class='empty_box'>
+            <view class='tips'>暂无有效订单</view>
+            <view class='btn'>
+              <navigator url="/pages/tickets/tickets" open-type="switchTab">
+                查看景点列表
+              </navigator>
+            </view>
+          </view>
+        </view>
+      </block>
+    </swiper-item>
+  </swiper>
+  <!-- 列表结束 -->
+</view>

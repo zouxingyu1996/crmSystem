@@ -1,0 +1,22 @@
+<!--pages/hotel/hotel.wxml-->
+<view class="page">
+  <view class="hotel_box">
+    <view class="item" wx:for="{{list}}" wx:key="item">
+     <navigator url="/pages/house/house?id={{item.id}}" hover-class="navigator-hover">
+        <view class="itemfl">
+          <image src="{{item.hotelimg}}"></image>
+        </view>
+        <view class="itemfr">
+          <view class="title">{{item.hotel_name}}</view>
+          <view class="tips"><text>{{item.star}}分</text></view>
+          <view class="site">{{item.address}}</view>
+          <view class="describe">{{item.level}}</view>
+          <view class="tag"><text wx:for="{{item.title}}" wx:key="item">{{item}}</text></view>
+          <view class="price"><view>￥<text>{{item.price}}</text></view>起</view>
+          <!-- <view class="btn" data-mobile="{{item.phone}}"  bindtap="calling">预定</view> -->
+        </view>
+      </navigator>
+    </view>
+    <view class="empty_tips" wx:if="{{list.length == 0}}">暂无酒店信息</view>
+  </view>
+</view>

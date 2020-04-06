@@ -1,0 +1,81 @@
+<!--pages/order/order.wxml-->
+<view class='page'>
+  <view class='order_top'>
+    <view class='tips'>门票待使用</view>
+    <view class='btn'>
+      <!-- <text>使用</text> -->
+      <text bindtap="refund">退款</text>
+    </view>
+  </view>
+  <view class='order_box'>
+    <view class='order_box_top'>
+      <view class='fl'>
+        <view class='name'>{{list.title}}</view>
+        <view class='site' wx:if="{{list.spec_name}}">规格: {{list.spec_name}}</view>
+        <view class='site'>{{list.placedetail}}</view>
+        <view class='total'>{{list.total}}张</view>
+      </view>
+      <view class='fr'>
+        <image src='{{list.imgurl}}'></image>
+      </view>
+    </view>
+    <view class='split-line'></view>
+    <view class='order_box_code'>
+      <view class='tips'>取票</view>
+      <view class='img'>
+        <image src='https://ytspiao.ytsshop.com/index.php/api/Xiaoapi/qrcode?orderid={{orderid}}&openid={{openid}}'></image>
+        <text wx:if="{{list.exchangecode}}">兑换码 {{list.exchangecode}}</text>
+        <text wx:else>兑换码 暂无兑换码</text>
+      </view>
+    </view>
+    <view class='split-line'></view>
+    <!-- <view class='order_box_site'></view> -->
+    <view class='order_box_sum'>
+      <view class='tips'>实付金额
+        <text>{{list.tfee}}元</text>
+      </view>
+      <view class='box'>
+        <view>订单号： {{list.outtradeno}}</view>
+        <view>购买时间: {{list.createtime}}</view>
+        <!-- <view>手机号： 18608490012</view> -->
+        <view>云台山茶旅集团提供</view>
+      </view>
+    </view>
+    <view class='order_box_notice'>
+      <view class='tips'>游览须知</view>
+      <view class='box'>
+        <view>1.进入景区务必购票，一人一票，门票当日有效，请保留门票，以备查验。</view>
+        <view>2.禁止攀折花草树木，践踏草坪。</view>
+        <view>3.禁止乱丢垃圾及乱吐痰。</view>
+        <view>4.爱护景区内的资源和旅游设施，不准乱刻、乱划、乱写、乱涂。</view>
+        <view>5.注意安全提示标志和工作人员的提醒，不准跨越防护栏杆，不准攀爬山体。</view>
+      </view>
+    </view>
+  </view>
+    <!--弹窗-->
+  <view class="modal-mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}">
+    <view class="modal-dialog" wx:if="{{showModal}}">
+      <view class="modal-title">退款须知
+        <!-- <view class="btn-cancel" bindtap="onCancel" data-status="cancel">
+          <text class="iconfont icon-shanchu"></text>
+        </view> -->
+      </view>
+      <view class="modal-content">
+        <view class="modal-input">
+          <view>
+            1.仅支持网上购票，且在有效日期以内未使用的订单退款，系统将在三个工作日内处理退款申请。
+          </view>
+          <view>
+            2.同一个订单多张门票不能分开退款。
+          </view>
+        </view>
+      </view>
+      <view class="modal-footer">
+        <view class='modal-footer-tips'>
+          <view class="btn-cancel" bindtap="onCancel">取消</view>
+          <view class="btn-confirm" bindtap="onConfirm">申请</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

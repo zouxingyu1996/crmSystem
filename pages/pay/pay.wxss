@@ -1,0 +1,129 @@
+view,text,label{
+    font-family: "微软雅黑";
+    font-size: 32rpx;
+    color:#333;
+    /* 字和字的间距 */
+    /* letter-spacing:5rpx; */
+}
+.row{
+  height: 80rpx;
+  /* border: 1rpx solid red; */
+  border-bottom: 2rpx solid 	#F5F5F5;
+}
+.title{
+width: 200rpx;
+line-height: 80rpx;
+float: left;
+padding-left: 20rpx;
+}
+.info{
+/* border: 1rpx solid red; */
+  text-align: right;
+  line-height: 80rpx;
+  padding-right: 40rpx;
+    overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+/* .content{
+  border-bottom: 10rpx solid #F5F5F5;
+} */
+
+.footer{
+   height: 80rpx;
+  /* border-bottom: 2rpx solid 	#F5F5F5; */
+    background-color: 	#d6d6d6;
+}
+.f-title{
+  width: 300rpx;
+  line-height: 80rpx;
+  float: left;
+  padding-left: 20rpx;
+  /* border:1rpx solid red; */
+  /* margin: 0 auto; */
+}
+
+.row-location{
+  height: 80rpx;
+  /* border: 1rpx solid red; */
+  border-bottom: 20rpx solid 	#F5F5F5;
+}
+.row-location .title{
+    width: 160rpx;
+    line-height: 80rpx;
+    float: left;
+    padding-left: 20rpx;
+}
+.info-location{
+    /* border: 1rpx solid red; */
+    /* text-align: left; */
+    line-height: 80rpx;
+    width: 556rpx;
+    float: left;
+    margin-top: 20rpx;
+}
+/* .info-text{
+  float: right;
+} */
+.info-img{
+  /* border: 1rpx solid red; */
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 25rpx;
+  float:right;
+}
+.row-img{
+  width: 40rpx;
+  height: 40rpx;
+  float:left;
+  padding-top: 30rpx;
+  padding-right: 30rpx;
+  margin-left: 80rpx;
+}
+
+.content{
+  /* border: 1rpx solid red; */
+  margin-bottom: 50rpx;
+}
+
+button{
+  width: 700rpx;
+}
+
+.weui-btn{
+  margin: 30rpx auto;
+}
+
+.rows{
+  border-top:20rpx solid #f5f5f5;
+  /* padding: 0 0 20rpx; */
+}
+
+.rows_top{
+  border-bottom:2rpx solid #eee;
+  padding: 15rpx 20rpx;
+}
+
+.rows_tips{
+  display: inline-block;
+  padding-left: 68rpx;
+  line-height: 50rpx;
+}
+
+.radio{
+  display: block;
+  border-bottom:2rpx solid #eee;
+  padding: 20rpx 0;
+  margin-left:20rpx;
+  position: relative;
+  overflow: hidden;
+}
+.radio image{
+  width:50rpx;
+  height:50rpx;
+  position: absolute
+}
+.radio radio{
+  float: right;
+}

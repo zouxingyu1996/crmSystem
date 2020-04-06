@@ -1,0 +1,221 @@
+<!--pages/detail/detail.wxml-->
+<view class='page'>
+	<view class='loading' wx:if="{{loading}}">
+		<view>
+			<image src='../../image/loading.gif'></image>
+		</view>
+	</view>
+  <view class="status_header">
+    <view class="top" style='height: {{statusBarHeight}}px;'></view>
+    <view class="back">
+      <view bindtap="back" class="iconfont icon-jiantouarrowhead7"></view>
+    </view>
+  </view>
+	<scroll-view bindscroll="scroll" class='list' scroll-with-animation="{{true}}" scroll-y scroll-into-view="{{cate}}" bindscrolltolower='{{"lower"}}' scroll-top='{{topNum}}'>
+		<view class='detail_top' id='detail_top'>
+			<!-- <text class='iconfont icon-jiantouarrowhead7' style='display: none;'></text> -->
+			<image src='{{list.coverimg}}'></image>
+		</view>
+		<!-- 景区信息 -->
+		<view class='detail_box'>
+			<view class='detail_box_top'>
+				<view class='detail_box_topfl'>
+					<image src='{{list.listimg}}'></image>
+				</view>
+				<view class='detail_box_topfr'>
+					<view class='name'>{{list.title}}
+						<text>{{list.inglish}}</text>
+					</view>
+					<view class='label'>{{list.tab}}</view>
+					<view class='site'>{{list.placedetail}}</view>
+					<view class='number'>
+						<text>{{list.been_num}}万</text>人去过</view>
+				</view>
+			</view>
+			<view class='detail_box_grade'>
+				<view class='detail_box_gradefl'>
+					<view class='number'>
+						<text>{{list.score}}</text>
+						<view class='star'>
+							<text class='iconfont {{list.score >= 1? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+							<text class='iconfont {{list.score >= 2? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+							<text class='iconfont {{list.score >= 3? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+							<text class='iconfont {{list.score >= 4? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+							<text class='iconfont {{list.score >= 5? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+						</view>
+					</view>
+					<view class='tips'>
+						<text class='text'>景点评分</text>{{list.popularity}}万人评分
+						<text class='iconfont icon-jiantou_you'></text>
+					</view>
+				</view>
+				<view class='detail_box_gradefr'>
+					<text wx:if="{{fee > 0}}">￥{{fee}}元</text>
+					<text wx:elif="{{fee == 0}}">免费景点</text>
+					<view>
+						<view class='stepper'>
+							<text class='{{minusStatus}}' type='number' bindtap='bindMinus'>-</text>
+							<input bindinput='bindManual' value='{{num}}'></input>
+							<text bindtap='bindPlus'>+</text>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class='detail_box_btn'>
+				<view class='detail_box_btnfl' bindtap="userCollection">
+					<text class='iconfont icon-decide {{collection == 1 ? "collectionactive" : ""}}'></text>
+					<block wx:if="{{collection == 1}}">
+						<text class="icon_correct"> 已收藏</text>
+					</block>
+					<block wx:else>
+						收藏
+					</block>
+				</view>
+				<view class='detail_box_btnfr {{been == 1 ? "beenactive" : ""}}' bindtap="userBeen">
+					<text class='iconfont icon-pingfen_xuanzhong'></text>
+					<block wx:if="{{been == 1}}">
+						<text class="icon_correct"> 已去过</text>
+					</block>
+					<block wx:else>
+						去过
+					</block>
+				</view>
+			</view>
+			<view class="detail_box_norms" wx:if="{{list.spec.length > 0}}">
+				<text>规格</text>
+				<view class="item">
+					<text wx:for="{{list.spec}}" wx:for-index="idx" wx:key="item" class="{{currentTab == idx?'norms_active':'' || item.id == spec_moren?'norms_active':''}}" data-current="{{idx}}" data-price="{{item.spec_price}}" data-id="{{item.id}}" bindtap="clickTab">{{item.spec_name}}</text>
+					<!-- <text class="{{currentTab==1?'norms_active':''}}" data-current="1" bindtap="clickTab">缆车上山</text>
+          <text class="{{currentTab==2?'norms_active':''}}" data-current="2" bindtap="clickTab">缆车下山</text> -->
+				</view>
+				<!-- <view class="item"></view> -->
+			</view>
+			<view class='detail_box_short'>
+				<text>短评</text>
+				<view class="swiperview swiper-position">
+					<swiper class="swiperitem" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" vertical="true" circular="true">
+						<block wx:for="{{list.commentary}}" wx:key="item">
+							<swiper-item>
+								<text class="swiper-txt">{{item}}</text>
+							</swiper-item>
+						</block>
+					</swiper>
+					<view class='shade'></view>
+				</view>
+			</view>
+		</view>
+		<!-- 景区信息结束 -->
+		<!-- 简介 -->
+		<view class='detail_intro'>
+			<view class='detail_intro_table'>
+				<view class='item {{active == 1?"active":""}}' bindtap="clickMenu" data-cate='fruit' data-active='1'>简介</view>
+				<view class='item {{active == 2?"active":""}}' bindtap="clickMenu" data-cate='fruit1' data-active='2'>视频</view>
+				<view class='item {{active == 3?"active":""}}' bindtap="clickMenu" data-cate='fruit2' data-active='3'>图片</view>
+				<view class='item {{active == 4?"active":""}}' bindtap="clickMenu" data-cate='fruit3' data-active='4'>评论</view>
+			</view>
+			<view id='fruit' class='fruit'></view>
+			<view class='detail_box_intro'>
+				<text>{{list.content}}</text>
+			</view>
+			<view class='detail_box_vido'>
+				<view id='fruit1' class='fruit'></view>
+				<view class='tips'>视频</view>
+				<block wx:if="{{list.video.length > 0}}">
+					<scroll-view scroll-x="true">
+						<view class='item' wx:for="{{list.video}}" wx:key="item">
+							<video id="myVideo" src="{{item}}" controls="true" object-fit="fill"></video>
+						</view>
+					</scroll-view>
+				</block>
+				<block wx:else>
+					<view class='text'>暂无上传视频</view>
+				</block>
+			</view>
+			<view class='detail_box_img'>
+				<view id='fruit2' class='fruit'></view>
+				<view class='tips'>图片</view>
+				<block wx:if="{{list.img.length > 0}}">
+					<scroll-view scroll-x="true">
+						<view class='item' wx:for="{{list.img}}" wx:key="item">
+							<image src='{{item}}' data-idx="{{index}}" bindtap="handleImagePreview"></image>
+						</view>
+					</scroll-view>
+				</block>
+				<block wx:else>
+					<view class='text'>暂无上传图片</view>
+				</block>
+			</view>
+			<view class='detail_box_comment'>
+				<view id='fruit3' class='fruit'></view>
+				<view class='tips'>游客点评
+					<!-- <navigator url="/pages/discuss/discuss?id={{cid}}" hover-class="navigator-hover">
+            <view class='btn'>写点评</view>
+          </navigator> -->
+				</view>
+				<view class='classify'>
+					<text class='{{screen == 1 ? "active":""}}' data-val='1' bindtap='screen'>全部</text>
+					<text class='{{screen == 2 ? "active":""}}' data-val='2' bindtap='screen'>最新</text>
+					<text class='{{screen == 3 ? "active":""}}' data-val='3' bindtap='screen'>有图</text>
+				</view>
+				<block wx:if="{{commentList.length > 0}}">
+					<view class='item' wx:for="{{commentList}}" wx:key="item" wx:for-item="item">
+						<view class='info'>
+							<view class='photo'>
+								<image src='{{item.avatarUrl}}'></image>
+							</view>
+							<view class='name'>
+								<text>{{item.nickName}}</text>
+								<view class='star'>
+									<text class='iconfont {{item.star >= 1? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+									<text class='iconfont {{item.star >= 2? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+									<text class='iconfont {{item.star >= 3? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+									<text class='iconfont {{item.star >= 4? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+									<text class='iconfont {{item.star >= 5? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+									<text class='number'>{{item.star}}</text>
+								</view>
+							</view>
+						</view>
+						<view class='text'>
+							{{item.comment}}
+						</view>
+						<view class="img">
+							<view class="img_item" wx:for="{{item.commentimg}}" wx:key="item" wx:for-item="itemImg">
+								<image src="{{itemImg}}" data-item="{{item.commentimg}}" data-idx="{{index}}" bindtap="handleImagePreview1"></image>
+							</view>
+						</view>
+						<view class='time'>{{item.comtime}}</view>
+					</view>
+				</block>
+				<block wx:else>
+					<view class='text1'>暂无评论</view>
+				</block>
+			</view>
+		</view>
+	</scroll-view>
+	<!-- 简介结束 -->
+	<view class='footer'>
+		<view class='buy' bindtap='weixinpay'>
+			<button class="weui-btn" type="primary">立即购买</button>
+		</view>
+	</view>
+	<!--弹窗-->
+	<view class="modal-mask" wx:if="{{showModal}}">
+		<view class="modal-dialog" wx:if="{{showModal}}">
+			<view class="modal-title">注意事项
+			</view>
+			<view class="modal-content">
+				<view class="modal-input">
+					<view wx:if="{{list.remarks}}" wx:for="{{list.remarks}}" wx:key="item">
+						{{item}}
+					</view>
+				</view>
+			</view>
+			<view class="modal-footer">
+				<view class='modal-footer-tips'>
+					<view class="btn-cancel" bindtap="onCancel">取消</view>
+					<view class="btn-confirm" bindtap="onConfirm">购买</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

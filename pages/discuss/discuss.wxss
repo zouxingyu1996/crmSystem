@@ -1,0 +1,117 @@
+/* pages/discuss/discuss.wxss */
+@import '../../utils/icon.wxss';
+/* 评分样式 */
+.collect_top{
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding-bottom: 50rpx;
+  border-bottom: 2rpx solid #ebebeb;
+}
+.number{
+  margin: 30rpx 0;
+}
+.number text{
+  color: #fda44f;
+  padding-left: 10rpx;
+}
+.star{
+  overflow: hidden;
+  display: inline-block;
+}
+.star_item{
+  width: auto;
+  float: left;
+  text-align: center;
+  margin: 0 10rpx;
+}
+.star_item .iconfont{
+  display: block;
+  font-size: 40rpx;
+  margin-bottom: 10rpx;
+}
+.star_item .staractive,.star_item .star_active{
+  color: #fda44f;
+}
+/* 文字 */
+.collect_text{
+  padding: 30rpx;
+}
+.collect_text textarea {
+  width: 100%;
+  line-height: 1.5;
+}
+.cmbox_lenght{
+  float: right;
+  color: #666;
+}
+/* 上传图片 */
+.cmbox_img{
+  margin: 50rpx 20rpx;
+}
+.sc-btn{
+  text-align: center;
+  box-shadow: #eee 0px 0px 20rpx 2rpx;
+  padding: 30rpx 0;
+  margin: 30rpx;
+}
+.sc-btn1{
+  width:calc( 25% - 10rpx);
+  float:left;
+  text-align: center;
+  box-shadow: #eee 0px 0px 20rpx 2rpx;
+  padding: 30rpx 0;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.icon-tubiaolunkuo-{
+  display: block;
+  font-size: 50rpx;
+  color: #333;
+  font-weight: bold;
+}
+.iconfont-text{
+  font-size: 32rpx;
+  color: #666;
+}
+.q-image-wrap{
+  width: calc(33% - 20rpx);
+  /* margin: 0 10rpx; */
+  margin-right: 20rpx;
+  margin-bottom: 10rpx;
+  float: left;
+  position: relative;
+}
+.q-image-remover{
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+  font-size: 50rpx;
+  color: #666;
+}
+.q-image-wrap image{
+  width: 100%;
+  height: 160rpx;
+}
+/* .q-image-wrap:nth-child(1){
+  margin-left: 0;
+} */
+/* .q-image-wrap:nth-last-child(1){
+  margin-right: 0;
+} */
+.question-images{
+  overflow: hidden;
+  padding: 20rpx 0;
+}
+.submit{
+  margin: 0 30rpx 50rpx;
+}
+.submit a{
+  display: inline-block;
+  width: 100%;
+  line-height: 80rpx;
+  background-image: linear-gradient(to right, #ff449d, #ff3068);
+  text-align: center;
+  color: #fff;
+  border-radius: 20rpx;
+}

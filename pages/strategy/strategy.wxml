@@ -1,0 +1,14 @@
+<!--pages/strategy/strategy.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="page">
+  <view class="top">
+    <image src="{{list.img1}}"></image>
+  </view>
+  <view class="box">
+    <view class="box_title">{{list.title}}</view>
+    <view class="box_main">
+      <!-- {{list.content}} -->
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+  </view>
+</view>

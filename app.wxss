@@ -1,0 +1,103 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+.page{
+  color: #333;
+}
+.nav{
+  position: fixed;
+  bottom: 0;
+  z-index: 9;
+  background: #fff;
+  height: 100rpx;
+  width: 100%;
+  border-top: 2rpx solid #ededed;
+  display: flex;
+  align-items: center;
+}
+.nav_fl,.nav_fr{
+width: calc(50% - 70rpx);
+}
+.nav_fl navigator,.nav_fr navigator{
+  width: 50%;
+  float: left;
+  text-align: center;
+  padding: 10rpx 0;
+  font-size: 26rpx;
+  color: #666;
+}
+.nav_fl navigator image,.nav_fr navigator image{
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  margin: 0 auto;
+}
+.nav_active{
+  color: #F93E99 !important;
+}
+.nav_centre{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  box-shadow:0rpx -20rpx 50rpx -10rpx #dad9d9;
+  background: #fff;
+  
+  font-size: 26rpx;
+  color: #666;
+}
+.nav_centre navigator{
+  text-align: center;
+  width: 140rpx;
+  height: 140rpx;
+}
+.nav_centre navigator image{
+  width: 60rpx;
+  height: 60rpx;
+  display: block;
+  margin: 10rpx auto 0;
+}
+.navigator-hover{
+  background-color: transparent !important; 
+}
+.loading{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: #F2F3F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading view image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.loading01{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading01 view image{
+  margin: 0 auto 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+}

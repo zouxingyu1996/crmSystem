@@ -1,0 +1,8 @@
+  {
+    "usingComponents": {},
+    "navigationBarTitleText": "预订",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
+  }

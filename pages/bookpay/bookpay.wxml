@@ -1,0 +1,38 @@
+<!--pages/bookpay/bookpay.wxml-->
+<view class='content'>
+  <view class='row'>
+    <label class='title'>酒店名称：</label>
+    <view class='info'></view>
+  </view>
+  <view class='row'>
+    <label class='title'>订单编号：</label>
+    <view class='info'></view>
+  </view>
+  <view class='row'>
+    <label class='title'>创建时间：</label>
+    <view class='info'></view>
+  </view>
+  <view class='row'>
+    <label class='title'>酒店地址：</label>
+    <view class='info'></view>
+  </view>
+  <view class='row'>
+    <label class='title'>商家名称：</label>
+    <view class='info'>云台山茶旅集团</view>
+  </view>
+  <view class='row'>
+    <label class='title'>房间价格：</label>
+    <view class='info'>￥元</view>
+  </view>
+  <view class='row'>
+    <label class='title'>房间数量：</label>
+    <view class='info'>1间</view>
+  </view>
+  <view class='row'>
+    <label class='title'>总共应付：</label>
+    <view class='info'>￥元</view>
+  </view>
+</view>
+<view bindtap='pay'>
+  <button class="weui-btn" type="primary">确定预订</button>
+</view>

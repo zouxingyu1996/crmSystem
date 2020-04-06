@@ -1,0 +1,154 @@
+<!--pages/house/house.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="page">
+  <view class='swiper-image'>
+    <!-- 轮播图 -->
+    <swiper autoplay="true" interval="5000" duration="500" circular="true">
+      <swiper-item wx:for="{{imglist}}" wx:key="item">
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="status_header">
+    <view class="top" style='height: {{statusBarHeight}}px;'></view>
+    <view class="back">
+      <view bindtap="back" class="iconfont icon-jiantouarrowhead7"></view>
+    </view>
+  </view>
+  <!-- tab导航 -->
+  <view class='switchTab'>
+    <view wx:for='{{arr}}' wx:key="item" class='{{currentTab == index ? "active" : ""}}' data-current='{{index}}' bindtap='swichNav'>{{item}}</view>
+  </view>
+  <swiper current='{{currentTab}}' class='swiper' duration="300" style="height: {{clientHeight?clientHeight - clientTop +'px':'auto'}}" bindchange="bindChange">
+    <!-- 房型 -->
+    <swiper-item>
+      <scroll-view scroll-y="true" style="height: {{clientHeight?clientHeight - clientTop +'px':'auto'}}">
+        <view class="hotel_box">
+          <!-- 日期选择器 -->
+          <!-- <view class="picker_group">  
+        <picker mode="date" value="{{dateStart}}"  end="{{dateStart}}" bindchange="bindDateChange">  
+          <view class="picker">  
+           <text>入住</text>
+            {{dateStart}}  
+          </view>  
+        </picker>  
+        至 
+        <picker mode="date" value="{{dateEnd}}" start="{{dateEnd}}" end="2050-01-01" bindchange="bindDateChange2">   
+          <view class="picker">  
+           <text>离店</text>
+            {{dateEnd}}  
+          </view>  
+        </picker>        
+      </view>   -->
+          <view class="item" wx:for="{{list}}" wx:key="item">
+            <view class="itemfl">
+              <image src="{{item.houseimg}}"></image>
+            </view>
+            <view class="itemfr">
+              <view class="title">{{item.roomname}}</view>
+              <view class="tips">
+                <text>{{item.typename}}</text>
+              </view>
+              <view class="site" bindtap='click' data-id="{{item.id}}" data-index="{{index}}">
+                {{item.hiddenName?'显示详情>':'收起详情'}}
+              </view>
+              <view class="price">
+                <view>￥
+                  <text>{{item.money}}</text>
+                </view>
+              </view>
+              <view class="btn" data-id="{{item.id}}" bindtap="calling">预定</view>
+            </view>
+            <!-- 详情 -->
+            <view wx:if="{{item.id==id}}" class='detail' hidden="{{item.hiddenName}}">
+              <view>面积：{{item.area}} | 床型：{{item.bednum}}张床 | 可住：{{item.number}} | 楼层：{{item.storey}}</view>
+              <view>参数：{{item.parameter}}</view>
+              <view class='detail_box_img'>
+                <view id='fruit2' class='fruit'></view>
+                <view class='tips'>房间图片</view>
+                <block wx:if="{{item.fileurl.length > 0}}">
+                  <scroll-view scroll-x="true">
+                    <view class='item' wx:for="{{item.fileurl}}" wx:key="item" wx:for-item="item1">
+                      <image src='{{item1}}' data-idx="{{index}}" data-item="{{item.fileurl}}" bindtap="handleImagePreview"></image>
+                    </view>
+                  </scroll-view>
+                </block>
+                <block wx:else>
+                  <view class='text'>暂无上传图片</view>
+                </block>
+              </view>
+            </view>
+          </view>
+          <view class="empty_tips" wx:if="{{list.length == 0}}">暂无酒店信息</view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 酒店信息 -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight - clientTop +'px':'auto'}}">
+        <view class="introduce">
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!-- 交通 -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight - clientTop +'px':'auto'}}">
+        <map bindtap="changemap" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" covers="{{covers}}" style="width: 100%; height: 100%;" show-location></map>
+      </scroll-view>
+    </swiper-item>
+    <!-- 点评 -->
+    <swiper-item>
+      <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight - clientTop +'px':'auto'}}">
+        <view class='detail_box_comment'>
+          <!-- <view id='fruit3' class='fruit'></view>
+        <view class='tips'>游客点评
+          <!-- <navigator url="/pages/discuss/discuss?id={{cid}}" hover-class="navigator-hover">
+            <view class='btn'>写点评</view>
+          </navigator> -->
+          <!-- </view> -->
+          <view class='classify'>
+            <text class='{{screen == 1 ? "active1":""}}' data-val='1' bindtap='screen'>全部</text>
+            <text class='{{screen == 2 ? "active1":""}}' data-val='2' bindtap='screen'>最新</text>
+            <text class='{{screen == 3 ? "active1":""}}' data-val='3' bindtap='screen'>有图</text>
+          </view>
+          <block wx:if="{{commentList.length > 0}}">
+            <view class='item' wx:for="{{commentList}}" wx:key="item" wx:for-item="item">
+              <view class='info'>
+                <view class='photo'>
+                  <image src='{{item.avatarUrl}}'></image>
+                </view>
+                <view class='name'>
+                  <text>{{item.nickName}}</text>
+                  <view class='star'>
+                    <text class='iconfont {{item.star >= 1? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+                    <text class='iconfont {{item.star >= 2? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+                    <text class='iconfont {{item.star >= 3? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+                    <text class='iconfont {{item.star >= 4? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+                    <text class='iconfont {{item.star >= 5? "icon-pingfen_xuanzhong":"icon-pingfen_moren"}}'></text>
+                    <text class='number'>{{item.star}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='text'>
+                {{item.comment}}
+              </view>
+              <view class="img">
+                <view class="img_item" wx:for="{{item.commentimg}}" wx:key="item" wx:for-item="itemImg">
+                  <image wx:if="{{itemImg}}" src="https://ytspiao.ytsshop.com/{{itemImg}}" data-item="{{item.commentimg}}" data-idx="{{index}}" bindtap="handleImagePreview1"></image>
+                </view>
+              </view>
+              <view class='time'>{{item.comtime}}</view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class='text1'>暂无评论</view>
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  <view class="tell" bindtap="tel">
+    <view class="iconfont icon-dianhua"></view>
+  </view>
+</view>

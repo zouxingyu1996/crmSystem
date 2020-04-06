@@ -1,0 +1,91 @@
+<view class="page">
+  <!-- 头部 -->
+  <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">门票</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">套票</view>
+  </view>
+  <!-- 头部结束 -->
+  <view class="loading01" wx:if="{{loading}}">
+    <view>
+      <image src="../../image/loading01.gif"></image>
+      <text>加载中</text>
+    </view>
+  </view>
+  <!-- 切换内容 -->
+  <swiper current="{{currentTab}}" duration="300" style='height:calc(100% - 188rpx);' bindchange="swiperTab">
+    <!-- 末使用的票据-->
+    <swiper-item>
+      <view class='hot_sale'>
+        <view class='hot_sale_item' wx:for="{{list}}" wx:key="item">
+          <navigator url="/pages/detail/detail?id={{item.activity.id}}" hover-class="navigator-hover">
+            <view class='hot_sale_itemfl'>
+              <image src='{{item.img}}'></image>
+            </view>
+            <view class='hot_sale_itemfr'>
+              <view class='hot_sale_text'>
+                <view class='bt'>{{item.activity.title}}</view>
+                <view class='grade'>景点评分
+                  <text>{{item.star}}</text> | {{item.popularity}}万人评分</view>
+                <view class='price'>
+                  <text wx:if="{{item.activity.fee > 0}}">￥{{item.activity.fee}}元</text>
+                  <text wx:elif="{{item.activity.fee == 0}}">免费</text>
+                </view>
+                <view class='cite'>{{item.activity.placedetail}}</view>
+              </view>
+              <view class='hot_sale_btn'>购票</view>
+              <view class='nes'>
+                <view><text class="tips">最新评论</text> | </view>
+                <view class="swiperview swiper-position">
+                  <swiper class="swiperitem" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" vertical="true" circular="true">
+                    <block wx:for="{{item.comment}}" wx:key="item">
+                      <swiper-item>
+                        <text class="swiper-txt">{{item}}</text>
+                      </swiper-item>
+                    </block>
+                  </swiper>
+                  <view class='shade'></view>
+                </view>
+                <!-- <text class="comment">{{item.comment}}</text> -->
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </swiper-item>
+
+    <swiper-item>
+      <view class='hot_sale'>
+        <view class="hot_sale_tips">暂无套票</view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <!-- 切换内容结束 -->
+  <view class='nav'>
+    <view class='nav_fl'>
+      <navigator url="/pages/index/index" open-type="switchTab">
+        <image src='../../image/nav_01.png'></image>
+        首页
+      </navigator>
+      <navigator url="/pages/hotel/hotel" open-type="switchTab">
+        <image src='../../image/nav_02.png'></image>
+        酒店
+      </navigator>
+    </view>
+    <view class='nav_centre'>
+      <navigator url="/pages/tickets/tickets" open-type="switchTab" class='nav_active'>
+        <image src='../../image/nav_hover03.png'></image>
+        门票
+      </navigator>
+    </view>
+    <view class='nav_fr'>
+      <navigator url="/pages/program/program" open-type="switchTab">
+        <image src='../../image/nav_04.png'></image>
+        演出
+      </navigator>
+      <navigator url="/pages/me/me" open-type="switchTab">
+        <image src='../../image/nav_05.png'></image>
+        我的
+      </navigator>
+    </view>
+  </view>
+</view>

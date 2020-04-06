@@ -1,0 +1,46 @@
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
+<view class='content'>
+  <view class='row'>
+    <label class='title'>景点名称：</label>
+    <view class='info'>{{title}}</view>
+  </view>
+  <view class='row'>
+    <label class='title'>订单编号：</label>
+    <view class='info'>{{outtradeno}}</view>
+  </view>
+  <view class='row'>
+    <label class='title'>创建时间：</label>
+    <view class='info'>{{createtime}}</view>
+  </view>
+  <view class='row'>
+    <label class='title'>景点地址：</label>
+    <view class='info'>{{placedetail}}</view>
+  </view>
+  <view class='row'>
+    <label class='title'>商家名称：</label>
+    <view class='info'>云台山茶旅集团</view>
+  </view>
+  <view class='row'>
+    <label class='title'>景点价格：</label>
+    <view class='info'>￥{{fee}}元</view>
+  </view>
+  <view class='row'>
+    <label class='title'>购买数量：</label>
+    <view class='info'>{{total}}张</view>
+  </view>
+  <view class='row'>
+    <label class='title'>随机优惠：</label>
+    <view class='info'>￥{{discount}}元/张</view>
+  </view>
+   <view class='row'>
+    <label class='title'>总计优惠：</label>
+    <view class='info'>￥{{filters.toFix(discount*total)}}元</view>
+  </view>
+  <view class='row'>
+    <label class='title'>总共应付：</label>
+    <view class='info'>￥{{tfee}}元</view>
+  </view>
+</view>
+<view bindtap='pay'>
+  <button class="weui-btn" type="primary">提交</button>
+</view>

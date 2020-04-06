@@ -1,0 +1,70 @@
+<!--pages/book/book.wxml-->
+<wxs module="numberUtil" src="../../utils/filter.wxs"></wxs>
+<view class="page">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <!-- 日期选择 -->
+     <view class="picker_group">  
+        <picker mode="date" name="dateStart" value="{{dateStart}}"  end="{{dateStart}}" bindchange="bindDateChange">  
+          <view class="picker">  
+           <text>入住</text>
+            {{dateStart}}
+          </view>  
+        </picker>  
+        至  
+        <picker mode="date" name="dateEnd" value="{{dateEnd}}" start="{{dateEnd}}" end="2050-01-01" bindchange="bindDateChange2">   
+          <view class="picker">  
+           <text>离店</text>
+            {{dateEnd}}  
+          </view>  
+        </picker>        
+      </view>
+      <view class='row'>
+        <label class='left'>房型：</label>
+        <view class='right'>{{roomname}}</view>
+      </view>
+      <view class='row'>
+        <label class='left'>价格：</label>
+        <view class='right'>￥{{price}}</view>
+      </view>
+       <!-- 房间数量 -->
+      <view class='row roomnum'>
+        <label class='left'>预定房数：</label>
+        <view class='stepper'>
+          <text class='{{minusStatus}}' type='number'  bindtap='bindMinus'>-</text>
+          <input name="roomsnum" bindinput='bindManual' value='{{num}}'></input>
+          <text bindtap='bindPlus'>+</text>
+        </view>
+      </view>
+        <!-- 入住人姓名 -->
+      <view class='row'>
+        <label class='left'>入住人：</label>
+        <input name="tenantname" class='right' placeholder="请输入姓名"/>
+      </view>
+      <!-- 联系手机 -->
+      <view class='row'>
+        <label class='left'>联系手机：</label>
+        <input name="telphone" class='right'  placeholder="请输入手机号"/>
+      </view>
+      <!-- 性别 -->
+      <radio-group name="sex"  bindChange="updataRadio" class="row">
+          <label class='left'>性别：</label>
+          <view class='right'>
+             <radio value="0" checked='true'>女</radio>
+          </view>
+          <view class='right'>
+              <radio value="1">男</radio>
+          </view>
+      </radio-group>   
+      <!-- 备注 -->
+      <view class='remark'>备注</view>
+      <view>
+          <textarea name="remark"  placeholder="请输入备注内容" />
+      </view>
+      <view class='footer'>
+         <view wx:if="{{numprice>0}}"  class='price'><button class="weui-btn"  type="warn">定金：￥{{numberUtil.numberFormat(numprice)}}</button></view>
+          <view wx:else  class='price'><button class="weui-btn" type="warn">定金：￥{{numberUtil.numberFormat(price)}}</button></view>
+         <view  class='buy'><button class="weui-btn" formType="submit" type="primary">立即预订</button></view>
+      </view>
+  </form>
+</view>
+

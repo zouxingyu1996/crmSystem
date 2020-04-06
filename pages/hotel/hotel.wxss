@@ -1,0 +1,167 @@
+/* pages/hotel/hotel.wxss */
+@import '../../utils/icon.wxss';
+.hotel_box {
+  padding-bottom: 150rpx;
+}
+
+/* 头部 */
+.header{
+  position: relative;
+  height: 420rpx;
+}
+.header_tips{
+  position: absolute;
+  top: 0;
+  z-index: 9;
+}
+
+/* 轮播图 */
+
+.header swiper {
+  height: 420rpx;
+}
+
+.header swiper .slide-image {
+  width: 750rpx;
+  height: 420rpx;
+  border-bottom-left-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+}
+
+.wx-swiper-dots {
+  position: relative;
+}
+
+.wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: 0;
+}
+
+/* 热门酒店 */
+
+.hot_hotel {
+  margin: 30rpx 20rpx;
+}
+
+.hot_hotel_tips {
+  margin-bottom: 30rpx;
+  line-height: 50rpx;
+}
+
+.hot_hotel_tips text {
+  color: #7f8699;
+}
+
+.hot_hotel_tips .fr{
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.hot_hotel_tips .fr .iconfont {
+  font-size: 40rpx;
+  margin-top: 5rpx;
+}
+
+.hot_hotel_item {
+  width: 200rpx;
+  position: relative;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+.hot_hotel_item image {
+  width: 100%;
+  height: 280rpx;
+  box-shadow: 0px 0px 10px #dad9d9;
+  border-radius: 10rpx;
+}
+
+.hot_hotel_item .describe {
+  position: absolute;
+  top: 240rpx;
+  color: #faa54f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 24rpx;
+  padding: 5rpx 10rpx;
+  box-sizing: border-box;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hot_hotel_item .describe .fl{
+  float: left;
+}
+
+.hot_hotel_item .describe .iconfont{
+  font-size: 22rpx;
+}
+.hot_hotel_item .btm{
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hot_hotel_item .name {
+  font-weight: bold;
+  width: 100%;
+}
+
+.hot_hotel_item .btn {
+  width: 100rpx;
+  color: white;
+  text-align: center;
+  background-image: linear-gradient(to right, #ff449d, #ff3068);
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  margin-top: 20rpx;
+}
+
+scroll-view {
+  width: auto;
+  white-space: nowrap;
+}
+
+scroll-view view:nth-last-child(1) {
+  margin-right: 0;
+}
+
+/* 促销活动 */
+
+.poster_tips{
+  margin: 0 30rpx 50rpx;
+  line-height: 50rpx;
+  border-top: 2rpx solid #eee;
+  padding-top: 20rpx;
+}
+
+.poster_tips text {
+  color: #7f8699;
+}
+.poster swiper{
+  margin-top: 50rpx;
+  height: 350rpx;
+}
+
+.poster swiper swiper-item{
+  box-shadow: 0px 0px 10px #dad9d9;
+}
+ 
+.slide-image {
+  width: 100%;
+  height: 350rpx;
+  border-radius: 10rpx;
+}
+ 
+.zoom-out {
+  transform: scale(0.8);
+  transition: all 0.7s ease-out 0s;
+}
+ 
+.zoom-in {
+  transform: scale(1);
+  transition: all 0.7s ease-in 0s;
+}

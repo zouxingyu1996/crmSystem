@@ -1,0 +1,124 @@
+<view class='page'>
+  <!-- 小程序权限申请 -->
+  <view class='info' wx:if="{{show_info}}" catchtouchmove="move">
+    <view class='infobox'>
+      <view class='logo'>
+        <image src='../../image/logo.png'></image>
+      </view>
+      <view class="iconfont icon-shanchu" bindtap="hideInfo"></view>
+      <view class='name'>门票小程序</view>
+      <view class='tips'>申请获取你的昵称、头像信息，用于个人中心展示。</view>
+      <view class="btn">
+        <button bindtap="hideInfo">取消</button>
+        <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">允许</button>
+      </view>
+    </view>
+  </view>
+  <!-- 小程序权限申请结束 -->
+  <!-- 头部 -->
+  <view class='me_top'>
+    <view class='me_top_fl'>
+      <image src='{{userInfo.avatarUrl}}'></image>
+    </view>
+    <view class='me_top_fr' wx:if="{{hasUserInfo}}">
+      <text class='name'>{{userInfo.nickName}}</text>
+      <view class='number'>
+        收藏 {{collection}}
+        <text>订单 {{order}}</text>
+      </view>
+    </view>
+    <view class='me_top_fr' wx:else>
+      <view class="info_btn" bindtap="showInfo">
+        登录/注册
+      </view>
+    </view>
+  </view>
+  <!-- 头部结束 -->
+  <!-- 中间列表 -->
+  <view class='me_nav'>
+    <view class='me_nav_item'>
+      <navigator url="/pages/bill/bill" hover-class="navigator-hover">
+        <image src='../../image/me_01.png'></image>
+        订单
+      </navigator>
+    </view>
+    <view class='me_nav_item'>
+      <navigator url="/pages/collect/collect" hover-class="navigator-hover">
+        <image src='../../image/me_02.png'></image>
+        收藏
+      </navigator>
+    </view>
+    <view class='me_nav_item'>
+      <navigator url="/pages/evaluate/evaluate" hover-class="navigator-hover">
+        <image src='../../image/me_03.png'></image>
+        评价
+      </navigator>
+    </view>
+  </view>
+  <view class='me_list'>
+    <view class='me_list_item'>
+      <navigator url="/pages/reserve/reserve" hover-class="navigator-hover">
+        酒店订单
+        <text class='iconfont icon-arrow-right-copy'></text>
+      </navigator>
+    </view>
+    <!--
+    <view class='me_list_item'>
+      <navigator url="/pages/program/program" open-type="switchTab">
+        演出列表
+        <text class='iconfont icon-arrow-right-copy'></text>
+      </navigator>
+    </view> -->
+    <view class='me_list_item'>
+      <navigator url="/pages/feedback/feedback" hover-class="navigator-hover">
+        投诉与建议
+        <text class='iconfont icon-arrow-right-copy'></text>
+      </navigator>
+    </view>
+    <view class='me_list_item' bindtap="calling">
+      联系客服
+      <text class='iconfont icon-arrow-right-copy'></text>
+    </view>
+    <view class='me_list_item'>
+      <navigator url="/pages/attractions/attractions" hover-class="navigator-hover">
+        关于我们
+        <text class='iconfont icon-arrow-right-copy'></text>
+      </navigator>
+    </view>
+    <view class='me_list_item'>
+      <navigator url="/pages/help/help" hover-class="navigator-hover">
+        帮助和指引
+        <text class='iconfont icon-arrow-right-copy'></text>
+      </navigator>
+    </view>
+  </view>
+  <!-- 中间列表结束 -->
+  <view class='nav'>
+    <view class='nav_fl'>
+      <navigator url="/pages/index/index" open-type="switchTab">
+        <image src='../../image/nav_01.png'></image>
+        首页
+      </navigator>
+      <navigator url="/pages/hotel/hotel" open-type="switchTab">
+        <image src='../../image/nav_02.png'></image>
+        酒店
+      </navigator>
+    </view>
+    <view class='nav_centre'>
+      <navigator url="/pages/tickets/tickets" open-type="switchTab">
+        <image src='../../image/nav_03.png'></image>
+        门票
+      </navigator>
+    </view>
+    <view class='nav_fr'>
+      <navigator url="/pages/program/program" open-type="switchTab">
+        <image src='../../image/nav_04.png'></image>
+        演出
+      </navigator>
+      <navigator url="/pages/me/me" open-type="switchTab" class='nav_active'>
+        <image src='../../image/nav_hover05.png'></image>
+        我的
+      </navigator>
+    </view>
+  </view>
+</view>

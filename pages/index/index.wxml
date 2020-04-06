@@ -1,0 +1,180 @@
+<view class='page' style='padding-bottom: 120rpx;'>
+  <view class='loading' wx:if="{{loading}}">
+    <view>
+      <image src='../../image/loading.gif'></image>
+    </view>
+  </view>
+  <!--头部-->
+  <view class="header">
+    <view class='header_tips'>
+      <!-- 状态栏 -->
+      <view style='height: {{statusBarHeight}}px;'></view>
+      <view class='city'>
+        <!-- <text class='iconfont icon-dingwei'></text> -->
+        {{city}}
+        <text class='iconfont icon-plus-select-down'></text>
+      </view>
+      <view class='search'>
+        <navigator url="/pages/search/search" hover-class="navigator-hover">
+          <text class='iconfont icon-sousuo'></text>
+          <input placeholder-style="color:#fff;" type='text' placeholder='搜索' disabled></input>
+        </navigator>
+      </view>
+    </view>
+    <swiper class="header_swiper" indicator-dots="true" indicator-color="rgba(255,255,255,.5)" indicator-active-color="rgba(255,255,255,1)" autoplay="true" interval="5000" duration="500" circular="true">
+      <swiper-item wx:for="{{imgUrls}}" wx:key="item">
+        <image src="{{item.img_url}}" class="slide-image" data-url="{{item.url}}" bindtap="navClick" />
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 头部结束 -->
+  <!-- 热门景点 -->
+  <view class='host_scenic'>
+    <navigator url="/pages/tickets/tickets" open-type="switchTab">
+      <view class='host_scenic_tips'>
+        热门景点
+        <text>Hot spots</text>
+        <text class='iconfont icon-arrow-right-copy'></text>
+      </view>
+    </navigator>
+    <scroll-view scroll-x="true">
+      <!-- <view class="scroll"> -->
+      <view wx:for="{{hosList}}" wx:key="item" class='host_scenic_item'>
+        <navigator url="/pages/detail/detail?id={{item.activity.id}}" hover-class="navigator-hover">
+          <image src='{{item.img}}'></image>
+          <view class='describe'>
+            <text>{{item.star}}分({{item.popularity}}+人气)</text>
+          </view>
+          <view class='btm'>
+            <text class='name'>{{item.activity.title}}</text>
+            <view class='btn'>购票</view>
+          </view>
+        </navigator>
+      </view>
+      <!-- </view> -->
+    </scroll-view>
+  </view>
+  <!-- 热门景点结束 -->
+  <!-- 限时抢购 -->
+  <view class='panic_buying'>
+    <navigator url="/pages/tickets/tickets" open-type="switchTab">
+      <view class='host_scenic_tips'>
+        优惠活动
+        <text>Hot spots</text>
+        <text class='iconfont icon-arrow-right-copy'></text>
+      </view>
+    </navigator>
+    <view class="lowPriceList">
+      <view class="lowPrice">
+        <view class="lowPriceLeft" id='{{item.id}}' wx:for="{{sellList}}" wx:key="item" wx:if="{{item.discount == 1}}">
+          <view class="lowPriceLeftAlbum">
+            <text>云台山风景区好玩项目</text>
+          </view>
+          <navigator url="/pages/detail/detail?id={{item.id}}" hover-class="navigator-hover">
+            <image src="{{item.imgurl}}"></image>
+            <view>{{item.title}}</view>
+            <view class="lowPriceDiscount">
+              <text>热销</text>
+              <view>
+                <text>￥{{item.price}}</text> 起
+              </view>
+            </view>
+          </navigator>
+        </view>
+        <view class="lowPriceRight">
+          <text class='text-title'>实惠项目</text>
+          <view class="lowPriceCoupon" wx:for="{{sellList}}" wx:key="item" wx:if="{{item.discount == 0}}">
+            <navigator url="/pages/detail/detail?id={{item.id}}" hover-class="navigator-hover">
+              <image src="http://tj.ytsshop.com/attachment/images/special.png"></image>
+              <view bindtap="detail" id='{{item.id}}'>
+                <text>{{item.title}}</text>
+                <view>
+                  <text>实惠</text>
+                  <view>
+                    <text>￥{{item.price}}</text> 起</view>
+                </view>
+              </view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 限时抢购结束 -->
+  <!-- 推荐攻略 -->
+  <view class='strategy'>
+    <view class='host_scenic_tips'>
+      推荐攻略
+      <text>Hot spots</text>
+    </view>
+    <view class="recommendList" wx:for="{{strategyList}}" wx:key="item">
+      <view class="recommend" wx:if="{{item.pid == 0}}">
+        <navigator url="/pages/strategy/strategy?id={{item.id}}" hover-class="navigator-hover">
+          <view class="recommendAlbum">
+            <image src="{{item.img}}" bindtap='attrbtn'></image>
+            <view>
+              <image src="{{item['album2']}}" bindtap="detail" id='11'></image>
+              <image src="{{item['album3']}}" bindtap="detail" id='9'></image>
+            </view>
+          </view>
+          <view class="recommendRegion" bindtap='attrbtn'>
+            <text>{{item.title}}</text>
+            <view>
+              <image src="../../image/label.png"></image>
+              <text>{{item['attr']}}</text>
+            </view>
+          </view>
+          <view bindtap='attrbtn' class="recommendIntroduce">{{item.describe}}</view>
+          <view class="recommendGrade">
+            <view>
+              <image src="{{item['recommendGrade']}}"></image>
+              <text>{{item['fraction']}}</text>
+              <text>(风景迷人)</text>
+            </view>
+            <button class='btn' open-type='share' type='warn' size="mini" plain="true">推荐</button>
+          </view>
+        </navigator>
+      </view>
+      <view class='recommend1'>
+        <view class='recommend1_box' wx:for="{{item.children}}" wx:key="item">
+          <navigator url="/pages/strategy/strategy?id={{item.id}}" hover-class="navigator-hover">
+            <image class='recommend1_img' src='{{item.img}}'></image>
+            <view class='recommend1_bt'>{{item.title}}</view>
+            <view class='recommend1_content'>
+              {{item.describe}}
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 推荐攻略结束 -->
+  <view class='nav'>
+    <view class='nav_fl'>
+      <navigator url="/pages/index/index" open-type="switchTab" class='nav_active'>
+        <image src='../../image/nav_hover01.png'></image>
+        首页
+      </navigator>
+      <navigator url="/pages/hotel/hotel" open-type="switchTab">
+        <image src='../../image/nav_02.png'></image>
+        酒店
+      </navigator>
+    </view>
+    <view class='nav_centre'>
+      <navigator url="/pages/tickets/tickets" open-type="switchTab">
+        <image src='../../image/nav_03.png'></image>
+        门票
+      </navigator>
+    </view>
+    <view class='nav_fr'>
+      <navigator url="/pages/program/program" open-type="switchTab">
+        <image src='../../image/nav_04.png'></image>
+        演出
+      </navigator>
+      <navigator url="/pages/me/me" open-type="switchTab">
+        <image src='../../image/nav_05.png'></image>
+        我的
+      </navigator>
+    </view>
+  </view>
+</view>

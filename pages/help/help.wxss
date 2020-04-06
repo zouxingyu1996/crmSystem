@@ -1,0 +1,51 @@
+/* pages/help/help.wxss */
+
+page {
+  height: 100%;
+  background-color: #f8f8f8;
+}
+
+.page {
+  padding: 30rpx 20rpx;
+}
+
+.box,.box1 {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 30rpx;
+}
+.box1 {
+  margin-top: 30rpx;
+}
+.title{
+  margin-bottom: 30rpx;
+  color: #666;
+  font-size: 36rpx;
+}
+.item{
+  margin-bottom: 30rpx;
+  font-size: 34rpx;
+  text-align: justify;
+}
+.item>view{
+  overflow: hidden;
+}
+.fl{
+  float: left;
+  width: 55rpx;
+}
+.fr{
+  float: left;
+  width: calc(100% - 55rpx);
+}
+.ask{
+  margin-bottom: 10rpx;
+  color: #333;
+}
+.reply{
+  color: #666;
+  line-height: 1.3;
+}
+.reply image{
+  width: 100%;
+}

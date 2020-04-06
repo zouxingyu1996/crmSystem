@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/me/me",
+    "pages/tickets/tickets",
+    "pages/detail/detail",
+    "pages/bill/bill",
+    "pages/order/order",
+    "pages/collect/collect",
+    "pages/discuss/discuss",
+    "pages/search/search",
+    "pages/strategy/strategy",
+    "pages/pay/pay",
+    "pages/attractions/attractions",
+    "pages/evaluate/evaluate",
+    "pages/program/program",
+    "pages/hotel/hotel",
+    "pages/feedback/feedback",
+    "pages/house/house",
+    "pages/book/book",
+    "pages/bookpay/bookpay",
+    "pages/reserve/reserve",
+    "pages/hotelscore/hotelscore",
+    "pages/help/help",
+    "pages/program_detail/program_detail",
+    "pages/activity/activity",
+    "pages/hotel_list/hotel_list"
+  ],
+  "permission":{
+    "scope.userLocation": {
+      "desc": "你的位置将用于首页展示"
+    }
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index"
+      },
+      {
+        "pagePath": "pages/me/me"
+      },
+      {
+        "pagePath": "pages/tickets/tickets"
+      },
+      {
+        "pagePath": "pages/program/program"
+      },
+      {
+        "pagePath": "pages/hotel/hotel"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

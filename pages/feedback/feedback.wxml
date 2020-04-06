@@ -1,0 +1,47 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="page">
+  <view class="title">
+    <input type="text" placeholder="标题" bindinput="bindTitle"></input>
+  </view>
+  <view class="main">
+    <view class="main_text">
+      <textarea bindinput="bindText" name="content" maxlength='200' placeholder="请留下您宝贵的建议与问题" placeholder-class='sug_p'></textarea>
+      <text class='cmbox_lenght'>{{t_length}}/200</text>
+    </view>
+    <view class='cmbox_img'>
+      <view class="question-images">
+        <block wx:for="{{images}}" wx:key="*this">
+          <view class="q-image-wrap">
+            <!-- 图片缩略图  -->
+            <image class="q-image" src="{{item}}" mode="aspectFill" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+            <!-- 移除图片的按钮  -->
+            <view class="q-image-remover iconfont icon-shanchu" data-idx="{{index}}" bindtap="removeImage"></view>
+          </view>
+        </block>
+        <view bindtap="chooseImage" wx:if="{{images.length < 9}}" class="{{images.length == 0?'sc-btn':'sc-btn'}}">
+          <text class='iconfont icon-tubiaolunkuo-'></text>
+          <text class='iconfont-text'>上传图片</text>
+        </view>
+      </view>
+      <block wx:if="{{videoSrc}}">
+        <view class="myVideo">
+          <video id="myVideo" src="{{videoSrc}}" controls="true" object-fit="fill"></video>
+          <!-- 移除图片的按钮  -->
+          <view class="q-video-remover iconfont icon-shanchu" bindtap="removeVideo"></view>
+        </view>
+      </block>
+      <block wx:else>
+        <view bindtap="chooseVideo" class="video-btn">
+          <text class='iconfont icon-shipin'></text>
+          <text class='iconfont-text'>上传视频</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="contact">
+    <input type="text" placeholder="手机号码或邮箱" bindinput="bindTel"></input>
+  </view>
+  <view class="submit">
+    <a href="javascript:0;" bindtap="submit">提交</a>
+  </view>
+</view>
