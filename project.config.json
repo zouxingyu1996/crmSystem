@@ -20,7 +20,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.3",
+	"libVersion": "2.9.5",
 	"appid": "wxa3c11908ff954851",
 	"projectname": "ticket",
 	"debugOptions": {

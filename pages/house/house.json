@@ -1,7 +1,7 @@
 {
   "usingComponents": {},
   "navigationBarTitleText": "房型列表",
-  "navigationBarTextStyle": "white",
+  "navigationBarTextStyle": "black",
   "navigationBarBackgroundColor": "#fff",
   "backgroundTextStyle": "dark",
   "navigationStyle": "custom"

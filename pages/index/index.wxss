@@ -13,7 +13,7 @@
 }
 .city {
   margin-left: 20rpx;
-  display: inline-block;
+  display: block;
   line-height: 80rpx;
   float: left;
   width: 140rpx;
@@ -46,7 +46,7 @@
   padding-left: 70rpx;
   margin-top: 15rpx;
   font-size: 26rpx;
-  background: rgba(0,0,0,.1);
+  background: rgba(0,0,0,.2);
   box-sizing: border-box;
   color: #fff;
 }

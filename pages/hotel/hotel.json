@@ -1,7 +1,7 @@
 {
   "usingComponents": {},
   "navigationBarTitleText": "酒店",
-  "navigationBarTextStyle": "white",
+  "navigationBarTextStyle": "black",
   "navigationBarBackgroundColor": "#fff",
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",

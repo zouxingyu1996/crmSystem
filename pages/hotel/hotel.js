@@ -78,6 +78,9 @@ Page({
     wx.stopPullDownRefresh()
     wx.hideTabBar()
     let that = this
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: 'https://ytspiao.ytsshop.com/api/Xiaohotel/hotel_index',
       header: {
@@ -105,6 +108,8 @@ Page({
           imgUrls: strs,
           hosList: _hosList,
           imgUrls1: _imgUrls1
+        })
+        wx.hideLoading({
         })
       }
     })
